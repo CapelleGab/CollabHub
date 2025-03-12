@@ -1,36 +1,74 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# CollabHub - Frontend
 
-## Getting Started
+## 📌 Description
 
-First, run the development server:
+CollabHub est une plateforme SaaS permettant aux équipes de collaborer efficacement grâce à un gestionnaire de projets intégré, un chat en temps réel, un tableau Kanban et un calendrier interactif.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## 🚀 Technologies utilisées
+
+- **Framework** : Next.js (React, TypeScript)
+- **UI** : TailwindCSS / shadcnUI
+- **État global** : Zustand
+- **Authentification** : inconnu
+- **Base de données** : inconnu
+- **Déploiement** : Vercel
+
+## 📂 Structure du projet
+
+```
+CollabHub/
+├── public/              # Assets publics (logos, icônes, etc.)
+├── app/                 # Pages principales (Dashboard, Chat, Kanban...)
+├── src/
+│   ├── components/      # Composants réutilisables
+│   ├── hooks/           # Hooks personnalisés
+│   ├── types/           # Types TypeScript
+│   ├── lib/             # Fonctions utilitaires
+│   └── config/          # Configuration globale (API, constantes...)
+├── .env                 # Variables d'environnement
+├── package.json         # Dépendances et scripts
+└── README.md            # Documentation du projet
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## ⚡ Installation
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 1. Cloner le dépôt
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```sh
+git clone git@github.com:CapelleGab/CollabHub.git
+cd CollabHub
+```
 
-## Learn More
+### 2. Installer les dépendances
 
-To learn more about Next.js, take a look at the following resources:
+```sh
+npm install #ou yarn install
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### 3. Configurer les variables d'environnement
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Créer un fichier `.env.local` à la racine et y ajouter :
 
-## Deploy on Vercel
+```env
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### 4. Lancer le serveur de développement
+
+```sh
+yarn dev  # ou npm run dev
+```
+
+Le projet sera accessible sur **http://localhost:3000**.
+
+## 🛠️ Fonctionnalités principales
+
+- Authentification utilisateur (Google, Email/Password)
+- Gestion des projets avec tableau Kanban
+- Chat en temps réel
+- Stockage et partage de fichiers
+- Notifications et rappels automatiques
+
+## 📜 License
+
+Ce projet est sous licence MIT.
