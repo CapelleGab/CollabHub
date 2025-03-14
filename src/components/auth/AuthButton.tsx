@@ -1,5 +1,5 @@
 "use client";
-import { LogOut, User } from "lucide-react";
+import { LayoutDashboard, LogOut, User } from "lucide-react";
 import { signIn, signOut } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { Button } from "../ui/button";
@@ -30,15 +30,23 @@ export const LogoutButton = ({ username }: { username: string }) => {
     router.push(`/profile`);
   };
 
+  const handleDashboardClick = () => {
+    router.push(`/dashboard`);
+  };
+
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <Button variant="outline">{username}</Button>
-      </DropdownMenuTrigger>  
+      </DropdownMenuTrigger>
       <DropdownMenuContent>
         <DropdownMenuItem onClick={handleProfileClick}>
           <User className="mr-2 h-4 w-4" />
           Profile
+        </DropdownMenuItem>
+        <DropdownMenuItem onClick={handleDashboardClick}>
+          <LayoutDashboard className="mr-2 h-4 w-4" />
+          Dashboard
         </DropdownMenuItem>
         <DropdownMenuSeparator />
         <DropdownMenuItem variant="destructive" onClick={handleSignOut}>
