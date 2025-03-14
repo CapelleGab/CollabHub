@@ -1,4 +1,4 @@
-# CollabHub
+# CollabHub - Frontend
 
 ## 📌 Description
 
