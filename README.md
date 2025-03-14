@@ -9,8 +9,8 @@ CollabHub est une plateforme SaaS permettant aux équipes de collaborer efficace
 - **Framework** : Next.js (React, TypeScript)
 - **UI** : TailwindCSS / shadcnUI
 - **État global** : Zustand
-- **Authentification** : inconnu
-- **Base de données** : inconnu
+- **Authentification** : Next-Auth / Prisma
+- **Base de données** : Prisma / Mysql
 - **Déploiement** : Vercel
 
 ## 📂 Structure du projet
