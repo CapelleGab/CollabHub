@@ -1,11 +1,9 @@
 import Header from "@/components/layout/Header";
-import { ThemeProvider } from "@/components/theme/theme-provider";
-import { auth } from "@/lib/auth";
+import { Providers } from "@/components/providers";
 import { cn } from "@/lib/utils";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import { AuthGuard } from "@/components/auth/AuthGuard";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -36,15 +34,10 @@ export default function RootLayout({
           "antialiased h-full flex flex-col gap-6"
         )}
       >
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <AuthGuard />
+        <Providers>
+          <Header />
           <main className="flex-1">{children}</main>
-        </ThemeProvider>
+        </Providers>
       </body>
     </html>
   );

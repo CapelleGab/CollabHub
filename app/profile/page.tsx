@@ -1,5 +1,5 @@
-import { UserProjectsList } from "@/components/profile/UserProjectsList";
 import { CreateProjectButton } from "@/components/profile/CreateProjectButton";
+import { UserProjectsList } from "@/components/profile/UserProjectsList";
 
 export default function ProfilePage() {
   return (
