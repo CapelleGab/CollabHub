@@ -35,11 +35,7 @@ export async function getUserProjects() {
     },
     include: {
       user: true,
-      ProjectMember: {
-        include: {
-          user: true,
-        },
-      },
+      ProjectMember: true,
     },
     orderBy: {
       createdAt: "desc",

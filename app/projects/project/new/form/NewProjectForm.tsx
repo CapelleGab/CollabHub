@@ -19,17 +19,18 @@ import { useDebounce } from "@/hooks/use-debounce";
 import { searchUsers } from "@app/actions/search.actions";
 import { User } from "@prisma/client";
 
+import { useRouter } from "next/navigation";
 import { FormEventHandler, useEffect, useState } from "react";
 import { createProject } from "./NewProjectForm.actions";
 
 type SearchUser = Pick<User, "id" | "username" | "name" | "image">;
 
 export const NewProjectForm = () => {
+  const router = useRouter();
   const [searchQuery, setSearchQuery] = useState("");
   const [searchResults, setSearchResults] = useState<SearchUser[]>([]);
   const [selectedUsers, setSelectedUsers] = useState<SearchUser[]>([]);
   const [isDialogOpen, setIsDialogOpen] = useState(false);
-
   const debouncedSearch = useDebounce(searchQuery, 300);
 
   useEffect(() => {
@@ -43,10 +44,12 @@ export const NewProjectForm = () => {
 
     const formData = new FormData(event.currentTarget);
 
-    const project = await createProject(formData);
-
     try {
-      // Your API call here
+      const project = await createProject(formData);
+
+      if (project.success) {
+        router.push(`/projects/project/${project.id}`);
+      }
     } catch (error) {
       console.error(error);
     }

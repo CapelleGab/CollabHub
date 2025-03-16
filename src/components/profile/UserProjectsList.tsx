@@ -33,7 +33,7 @@ export async function UserProjectsList() {
       {projects.map((project: Project) => (
         <Link
           key={project.id}
-          href={`/projects/${project.id}`}
+          href={`/projects/project/${project.id}`}
           className="block"
         >
           <Card className="h-full hover:border-primary/50 transition-colors">
@@ -52,7 +52,7 @@ export async function UserProjectsList() {
               </p>
               <div className="mt-4">
                 <p className="text-sm text-muted-foreground">
-                  {project.ProjectMember.length + 1} members
+                  {project.ProjectMember.length} members
                 </p>
               </div>
             </CardContent>

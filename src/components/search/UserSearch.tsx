@@ -55,9 +55,9 @@ export function UserSearch({
                     </AvatarFallback>
                   </Avatar>
                   <div className="flex flex-col">
-                    <span>{user.name}</span>
+                    <span className="text-start">{user.name}</span>
                     {user.username && (
-                      <span className="text-sm text-muted-foreground">
+                      <span className="text-[10px] text-start text-muted-foreground">
                         @{user.username}
                       </span>
                     )}
