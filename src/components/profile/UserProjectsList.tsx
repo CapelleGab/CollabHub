@@ -1,3 +1,4 @@
+import { ProjectType } from "@/types/ProjectType";
 import { getUserProjects } from "@app/actions/user.actions";
 import { formatDistanceToNow } from "date-fns";
 import Link from "next/link";
@@ -8,14 +9,6 @@ import {
   CardHeader,
   CardTitle,
 } from "../ui/card";
-
-type Project = {
-  id: string;
-  name: string;
-  description: string | null;
-  createdAt: Date;
-  ProjectMember: { id: string }[];
-};
 
 export async function UserProjectsList() {
   const projects = await getUserProjects();
@@ -30,10 +23,10 @@ export async function UserProjectsList() {
 
   return (
     <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-      {projects.map((project: Project) => (
+      {projects.map((project: ProjectType) => (
         <Link
           key={project.id}
-          href={`/projects/project/${project.id}`}
+          href={`/dashboard/project/${project.id}`}
           className="block"
         >
           <Card className="h-full hover:border-primary/50 transition-colors">

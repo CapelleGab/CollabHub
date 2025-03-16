@@ -6,7 +6,7 @@ import { buttonVariants } from "../ui/button";
 export function CreateProjectButton() {
   return (
     <Link
-      href="/projects/project/new"
+      href="/dashboard/project/new"
       className={buttonVariants({ variant: "default" })}
     >
       Create new project

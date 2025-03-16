@@ -30,8 +30,8 @@ export const LogoutButton = ({ username }: { username: string }) => {
     router.push(`/profile`);
   };
 
-  const handleProjectsClick = () => {
-    router.push(`/projects`);
+  const handleDashboardClick = () => {
+    router.push(`/dashboard`);
   };
 
   return (
@@ -44,9 +44,9 @@ export const LogoutButton = ({ username }: { username: string }) => {
           <User className="mr-2 h-4 w-4" />
           Profile
         </DropdownMenuItem>
-        <DropdownMenuItem onClick={handleProjectsClick}>
+        <DropdownMenuItem onClick={handleDashboardClick}>
           <LayoutDashboard className="mr-2 h-4 w-4" />
-          Your projects
+          Dashboard
         </DropdownMenuItem>
         <DropdownMenuSeparator />
         <DropdownMenuItem variant="destructive" onClick={handleSignOut}>

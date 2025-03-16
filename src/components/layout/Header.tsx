@@ -1,8 +1,8 @@
 "use client";
 
 import { LoginButton, LogoutButton } from "@/components/auth/AuthButton";
-import Link from "next/link";
 import { useSession } from "next-auth/react";
+import Link from "next/link";
 import { ModeToggle } from "../theme/theme-mode-toggle";
 
 export default function Header() {

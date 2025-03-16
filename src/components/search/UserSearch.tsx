@@ -8,16 +8,9 @@ import {
   CommandInput,
   CommandItem,
   CommandList,
-  SearchUser,
 } from "@/components/ui/command";
+import { UserSearchProps } from "@/types/UserType";
 import * as React from "react";
-
-interface UserSearchProps {
-  users: SearchUser[];
-  onSelect: (user: SearchUser) => void;
-  onSearch: (value: string) => void;
-  searchQuery: string;
-}
 
 export function UserSearch({
   users,

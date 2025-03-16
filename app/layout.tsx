@@ -1,5 +1,5 @@
+import { SessionControlProvider } from "@/components/auth/SessionControlProvider";
 import Header from "@/components/layout/Header";
-import { Providers } from "@/components/providers";
 import { cn } from "@/lib/utils";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
@@ -34,10 +34,10 @@ export default function RootLayout({
           "antialiased h-full flex flex-col gap-6"
         )}
       >
-        <Providers>
+        <SessionControlProvider>
           <Header />
           <main className="flex-1">{children}</main>
-        </Providers>
+        </SessionControlProvider>
       </body>
     </html>
   );

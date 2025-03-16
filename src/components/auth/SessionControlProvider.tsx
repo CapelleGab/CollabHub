@@ -2,9 +2,13 @@
 
 import { ThemeProvider } from "@/components/theme/theme-provider";
 import { SessionProvider } from "next-auth/react";
-import { AuthGuard } from "./auth/AuthGuard";
+import { AuthGuard } from "./AuthGuard";
 
-export function Providers({ children }: { children: React.ReactNode }) {
+export function SessionControlProvider({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <SessionProvider>
       <ThemeProvider

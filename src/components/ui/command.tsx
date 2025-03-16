@@ -1,4 +1,3 @@
-import { User } from "@prisma/client";
 import { cn } from "@/lib/utils";
 import { Search } from "lucide-react";
 import React from "react";
@@ -7,7 +6,8 @@ interface CommandProps extends React.HTMLAttributes<HTMLDivElement> {
   shouldFilter?: boolean;
 }
 
-interface CommandInputProps extends React.InputHTMLAttributes<HTMLInputElement> {
+interface CommandInputProps
+  extends React.InputHTMLAttributes<HTMLInputElement> {
   onValueChange?: (value: string) => void;
 }
 
@@ -23,11 +23,10 @@ interface CommandGroupProps extends React.HTMLAttributes<HTMLDivElement> {
   heading?: string;
 }
 
-interface CommandItemProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+interface CommandItemProps
+  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   onSelect?: () => void;
 }
-
-export type SearchUser = Pick<User, "id" | "username" | "name" | "image">;
 
 export const Command = React.forwardRef<HTMLDivElement, CommandProps>(
   ({ className, shouldFilter, children, ...props }, ref) => {
@@ -44,27 +43,28 @@ export const Command = React.forwardRef<HTMLDivElement, CommandProps>(
 );
 Command.displayName = "Command";
 
-export const CommandInput = React.forwardRef<HTMLInputElement, CommandInputProps>(
-  ({ className, value, onValueChange, onFocus, onBlur, ...props }, ref) => {
-    return (
-      <div className="flex items-center border-b px-3">
-        <Search className="mr-2 h-4 w-4 shrink-0 opacity-50" />
-        <input
-          ref={ref}
-          className={cn(
-            "flex h-11 w-full rounded-md bg-transparent py-3 text-sm outline-none placeholder:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-50",
-            className
-          )}
-          value={value}
-          onChange={(e) => onValueChange?.(e.target.value)}
-          onFocus={onFocus}
-          onBlur={onBlur}
-          {...props}
-        />
-      </div>
-    );
-  }
-);
+export const CommandInput = React.forwardRef<
+  HTMLInputElement,
+  CommandInputProps
+>(({ className, value, onValueChange, onFocus, onBlur, ...props }, ref) => {
+  return (
+    <div className="flex items-center border-b px-3">
+      <Search className="mr-2 h-4 w-4 shrink-0 opacity-50" />
+      <input
+        ref={ref}
+        className={cn(
+          "flex h-11 w-full rounded-md bg-transparent py-3 text-sm outline-none placeholder:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-50",
+          className
+        )}
+        value={value}
+        onChange={(e) => onValueChange?.(e.target.value)}
+        onFocus={onFocus}
+        onBlur={onBlur}
+        {...props}
+      />
+    </div>
+  );
+});
 CommandInput.displayName = "CommandInput";
 
 export const CommandList = React.forwardRef<HTMLDivElement, CommandListProps>(
@@ -72,7 +72,10 @@ export const CommandList = React.forwardRef<HTMLDivElement, CommandListProps>(
     return (
       <div
         ref={ref}
-        className={cn("max-h-[300px] overflow-y-auto overflow-x-hidden", className)}
+        className={cn(
+          "max-h-[300px] overflow-y-auto overflow-x-hidden",
+          className
+        )}
         {...props}
       >
         {children}
@@ -102,12 +105,13 @@ export const CommandGroup = React.forwardRef<HTMLDivElement, CommandGroupProps>(
     return (
       <div
         ref={ref}
-        className={cn("overflow-hidden p-1 [&_[cmdk-group-heading]]:px-2 [&_[cmdk-group-heading]]:py-1.5 [&_[cmdk-group-heading]]:text-sm [&_[cmdk-group-heading]]:font-medium [&_[cmdk-group-heading]]:text-muted-foreground", className)}
+        className={cn(
+          "overflow-hidden p-1 [&_[cmdk-group-heading]]:px-2 [&_[cmdk-group-heading]]:py-1.5 [&_[cmdk-group-heading]]:text-sm [&_[cmdk-group-heading]]:font-medium [&_[cmdk-group-heading]]:text-muted-foreground",
+          className
+        )}
         {...props}
       >
-        {heading && (
-          <div cmdk-group-heading="">{heading}</div>
-        )}
+        {heading && <div cmdk-group-heading="">{heading}</div>}
         {children}
       </div>
     );
@@ -115,21 +119,22 @@ export const CommandGroup = React.forwardRef<HTMLDivElement, CommandGroupProps>(
 );
 CommandGroup.displayName = "CommandGroup";
 
-export const CommandItem = React.forwardRef<HTMLButtonElement, CommandItemProps>(
-  ({ className, onSelect, children, ...props }, ref) => {
-    return (
-      <button
-        ref={ref}
-        className={cn(
-          "relative flex cursor-default select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none aria-selected:bg-accent aria-selected:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50",
-          className
-        )}
-        onClick={onSelect}
-        {...props}
-      >
-        {children}
-      </button>
-    );
-  }
-);
+export const CommandItem = React.forwardRef<
+  HTMLButtonElement,
+  CommandItemProps
+>(({ className, onSelect, children, ...props }, ref) => {
+  return (
+    <button
+      ref={ref}
+      className={cn(
+        "relative flex cursor-default select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none aria-selected:bg-accent aria-selected:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50",
+        className
+      )}
+      onClick={onSelect}
+      {...props}
+    >
+      {children}
+    </button>
+  );
+});
 CommandItem.displayName = "CommandItem";
